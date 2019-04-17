@@ -18,9 +18,9 @@ class Main extends Component {
           <img src="./logo.png" width="550" />
         </div>
         <Route exact path="/" component={About} />
-        <Route path="/practicing" component={Practicing} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/contacts" component={Contacts} />
+        <Route exact path="/practicing" component={Practicing} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/contacts" component={Contacts} />
       </div>
     );
   }

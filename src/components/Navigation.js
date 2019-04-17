@@ -1,21 +1,29 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Navigation extends Component {
   render() {
     return (
       <ul>
         <li>
-          <Link to="/">About</Link>
+          <NavLink exact to="/" activeClassName="active">
+            About
+          </NavLink>
         </li>
         <li>
-          <Link to="/practicing">Practicing</Link>
+          <NavLink to="/practicing" activeClassName="active">
+            Practicing
+          </NavLink>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          <NavLink to="/profile" activeClassName="active">
+            Profile
+          </NavLink>
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>
+          <NavLink to="/contacts" activeClassName="active">
+            Contacts
+          </NavLink>
         </li>
       </ul>
     );

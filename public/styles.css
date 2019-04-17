@@ -63,6 +63,12 @@ section p {
   text-transform: uppercase;
 }
 
+.nav .active {
+  --font-size: 1.2em;
+  --font-weight: 700;
+  border-bottom: 2px solid #ffffff;
+}
+
 .nav a:hover {
   color: #000000;
 }
