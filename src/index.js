@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import Main from "./components/Main";
-import Navigation from "./components/Navigation";
 import * as serviceWorker from "./serviceWorker";
 
-//ReactDOM.render(<Navigation />, document.getElementById("nav"));
 ReactDOM.render(
   <BrowserRouter>
     <Main />

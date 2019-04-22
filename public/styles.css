@@ -90,3 +90,7 @@ section p {
 .footer {
   background-color: #008200;
 }
+
+._row div {
+  border: 2px solid blue;
+}
