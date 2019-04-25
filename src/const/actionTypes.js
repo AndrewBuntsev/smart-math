@@ -1,0 +1,3 @@
+export const ENABLE_MODULE = "ENABLE_MODULE";
+export const CHANGE_TOTAL = "CHANGE_TOTAL";
+export const CHANGE_MAXIMUM_SUM = "CHANGE_MAXIMUM_SUM";
