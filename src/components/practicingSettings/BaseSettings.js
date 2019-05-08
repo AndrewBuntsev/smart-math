@@ -31,10 +31,10 @@ class BaseSettings extends Component {
           onChange={this.onChangeEnabled}
         />
         <Form.Group as={Row} style={{ width: "90%", marginTop: "15px" }}>
-          <Form.Label column sm="6">
+          <Form.Label column sm="6" md="8" lg="12">
             Problems Total
           </Form.Label>
-          <Col sm="4">
+          <Col sm="4" lg="12">
             <Form.Control
               type="text"
               value={this.props.problemsTotal}

@@ -10,11 +10,11 @@ import {
   DIVISION
 } from "../const/practicingTypes.js";
 import AdditionSettings from "./practicingSettings/AdditionSettings.js";
+import SubtractionSettings from "./practicingSettings/SubtractionSettings.js";
+import MultiplicationSettings from "./practicingSettings/MultiplicationSettings.js";
+import DivisionSettings from "./practicingSettings/DivisionSettings.js";
 
 class Practicing extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -29,21 +29,19 @@ class Practicing extends Component {
               </PracticingModuleSettingsContainer>
             </div>
             <div className="col-lg-3 col-md-6 col-sm-12">
-              <PracticingModuleSettingsContainer moduleName={SUBTRACTION}>
-                <span>111111111111111</span>
+            <PracticingModuleSettingsContainer moduleName={SUBTRACTION}>
+                <SubtractionSettings />
               </PracticingModuleSettingsContainer>
             </div>
             <div className="col-lg-3 col-md-6 col-sm-12">
               <PracticingModuleSettingsContainer moduleName={MULTIPLICATION}>
-                <img
-                  id="loadingImage"
-                  src="https://theartofeducation.edu/content/themes/artofed/img/loader.gif"
-                  width="100"
-                />
+                <MultiplicationSettings />
               </PracticingModuleSettingsContainer>
             </div>
             <div className="col-lg-3 col-md-6 col-sm-12">
-              <PracticingModuleSettingsContainer moduleName={DIVISION} />
+              <PracticingModuleSettingsContainer moduleName={DIVISION}>
+              <DivisionSettings/>
+              </PracticingModuleSettingsContainer>
             </div>
           </div>
         </div>

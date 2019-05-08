@@ -15,7 +15,7 @@ class Main extends Component {
           <Navigation />
         </nav>
         <div className="logo">
-          <img src="./logo.png" width="550" />
+          <img src="./logo.png" width="550" alt='Smart Math' />
         </div>
         <Route exact path="/" component={About} />
         <Route exact path="/practicing" component={Practicing} />

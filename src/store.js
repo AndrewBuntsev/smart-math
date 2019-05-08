@@ -11,9 +11,9 @@ import rootReducer from "./reducers/rootReducer";
 export const defaultState = {
   modules: [
     { name: ADDITION, isEnabled: true, problemsTotal: 20, maximumSum: 100 },
-    { name: SUBTRACTION, isEnabled: true, problemsTotal: 18 },
-    { name: MULTIPLICATION, isEnabled: true, problemsTotal: 15 },
-    { name: DIVISION, isEnabled: true, problemsTotal: 10 }
+    { name: SUBTRACTION, isEnabled: true, problemsTotal: 18, maximumMinuend: 120 },
+    { name: MULTIPLICATION, isEnabled: true, problemsTotal: 15, maximumMultiplier: 12 }, 
+    { name: DIVISION, isEnabled: true, problemsTotal: 10, maximumDivident: 144 }
   ]
 };
 

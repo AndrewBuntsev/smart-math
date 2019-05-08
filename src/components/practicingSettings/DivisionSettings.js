@@ -4,31 +4,31 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import BaseSettings from "./BaseSettings";
-import { ADDITION } from "../../const/practicingTypes";
-import { changeMaximumSum } from "../../actions/changeMaximumSum";
+import { DIVISION } from "../../const/practicingTypes";
+import { changeMaximumDivident } from "../../actions/changeMaximumDivident";
 
-class AdditionSettings extends Component {
-  onChangeMaximumSum = e => {
+class DivisionSettings extends Component {
+  onChangeMaximumDivident = e => {
     let newValue = parseInt(e.target.value);
     if (Number.isNaN(newValue)) {
       newValue = 0;
     }
-    this.props.changeMaximumSum(newValue);
+    this.props.changeMaximumDivident(newValue);
   };
 
   render() {
     return (
       <>
-        <BaseSettings moduleName={ADDITION}>
+        <BaseSettings moduleName={DIVISION}>
           <Form.Group as={Row} style={{ width: "90%", marginTop: "-8px" }}>
             <Form.Label column sm="6" md="8" lg="12">
-              Maximum Sum
+              Maximum Divident
             </Form.Label>
             <Col sm="4" lg="12">
               <Form.Control
                 type="text"
-                value={this.props.maximumSum}
-                onChange={this.onChangeMaximumSum}
+                value={this.props.maximumDivident}
+                onChange={this.onChangeMaximumDivident}
                 disabled={this.props.isEnabled ? "" : "disabled"}
               />
             </Col>
@@ -41,22 +41,22 @@ class AdditionSettings extends Component {
 
 BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
-  maximumSum: PropTypes.number.isRequired,
-  changeMaximumSum: PropTypes.func.isRequired
+  maximumDivident: PropTypes.number.isRequired,
+  changeMaximumDivident: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
-  let module = state.modules.find(m => m.name === ADDITION); 
+  let module = state.modules.find(m => m.name === DIVISION); 
   return {
     isEnabled: module.isEnabled,
-    maximumSum: module.maximumSum
+    maximumDivident: module.maximumDivident
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeMaximumSum: maximumSum => {
-    dispatch(changeMaximumSum(maximumSum));
+  changeMaximumDivident: maximumDivident => {
+    dispatch(changeMaximumDivident(maximumDivident));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdditionSettings);
+export default connect(mapStateToProps, mapDispatchToProps)(DivisionSettings);
