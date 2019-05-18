@@ -13,6 +13,7 @@ import AdditionSettings from "./practicingSettings/AdditionSettings.js";
 import SubtractionSettings from "./practicingSettings/SubtractionSettings.js";
 import MultiplicationSettings from "./practicingSettings/MultiplicationSettings.js";
 import DivisionSettings from "./practicingSettings/DivisionSettings.js";
+import StartPracticingButton from "./practicingSettings/practicingComponents/StartPracticingButton.js";
 
 class Practicing extends Component {
 
@@ -22,7 +23,7 @@ class Practicing extends Component {
         <h2>Practicing</h2>
         <br />
         <div className="container">
-          <div className="row" style={{ height: "200px" }}>
+          <div className="row">
             <div className="col-lg-3 col-md-6 col-sm-12">
               <PracticingModuleSettingsContainer moduleName={ADDITION}>
                 <AdditionSettings />
@@ -38,13 +39,22 @@ class Practicing extends Component {
                 <MultiplicationSettings />
               </PracticingModuleSettingsContainer>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12">
+            <div className="col-lg-3 col-md-6 col-sm-12" style={{marginBottom: '150px'}}>
               <PracticingModuleSettingsContainer moduleName={DIVISION}>
               <DivisionSettings/>
               </PracticingModuleSettingsContainer>
             </div>
           </div>
+
+          <div className="row">
+            <div className="col-12 text-center">
+              <StartPracticingButton></StartPracticingButton>              
+            </div>
+          </div>
+
         </div>
+
+        
       </section>
     );
   }

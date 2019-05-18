@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import BaseSettings from "./BaseSettings";
 import { MULTIPLICATION } from "../../const/practicingTypes";
 import { changeMaximumMultiplier } from "../../actions/changeMaximumMultiplier";
+import { SETTINGS } from "../../const/modes";
 
 class MultiplicationSettings extends Component {
   onChangeMaximumMultiplier = e => {
@@ -29,7 +30,7 @@ class MultiplicationSettings extends Component {
                 type="text"
                 value={this.props.maximumMultiplier}
                 onChange={this.onChangeMaximumMultiplier}
-                disabled={this.props.isEnabled ? "" : "disabled"}
+                disabled={this.props.isEnabled && this.props.mode === SETTINGS ? "" : "disabled"}
               />
             </Col>
           </Form.Group>
@@ -42,14 +43,16 @@ class MultiplicationSettings extends Component {
 BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
   maximumMultiplier: PropTypes.number.isRequired,
-  changeMaximumMultiplier: PropTypes.func.isRequired
+  changeMaximumMultiplier: PropTypes.func.isRequired,
+  mode: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
   let module = state.modules.find(m => m.name === MULTIPLICATION); 
   return {
     isEnabled: module.isEnabled,
-    maximumMultiplier: module.maximumMultiplier
+    maximumMultiplier: module.maximumMultiplier,
+    mode: state.mode,
   };
 };
 

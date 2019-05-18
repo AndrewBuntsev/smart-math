@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import BaseSettings from "./BaseSettings";
 import { SUBTRACTION } from "../../const/practicingTypes";
 import { changeMaximumMinuend } from "../../actions/changeMaximumMinuend";
+import { SETTINGS } from "../../const/modes";
 
 class SubtractionSettings extends Component {
   onChangeMaximumMinuend = e => {
@@ -29,7 +30,7 @@ class SubtractionSettings extends Component {
                 type="text"
                 value={this.props.maximumMinuend}
                 onChange={this.onChangeMaximumMinuend}
-                disabled={this.props.isEnabled ? "" : "disabled"}
+                disabled={this.props.isEnabled && this.props.mode === SETTINGS ? "" : "disabled"}
               />
             </Col>
           </Form.Group>
@@ -42,14 +43,16 @@ class SubtractionSettings extends Component {
 BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
   maximumMinuend: PropTypes.number.isRequired,
-  changeMaximumMinuend: PropTypes.func.isRequired
+  changeMaximumMinuend: PropTypes.func.isRequired,
+  mode: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
   let module = state.modules.find(m => m.name === SUBTRACTION); 
   return {
     isEnabled: module.isEnabled,
-    maximumMinuend: module.maximumMinuend
+    maximumMinuend: module.maximumMinuend,
+    mode: state.mode,
   };
 };
 

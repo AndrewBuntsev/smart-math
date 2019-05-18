@@ -7,6 +7,7 @@ import {
 } from "./const/practicingTypes";
 
 import rootReducer from "./reducers/rootReducer";
+import { SETTINGS } from "./const/modes";
 
 export const defaultState = {
   modules: [
@@ -14,7 +15,8 @@ export const defaultState = {
     { name: SUBTRACTION, isEnabled: true, problemsTotal: 18, maximumMinuend: 120 },
     { name: MULTIPLICATION, isEnabled: true, problemsTotal: 15, maximumMultiplier: 12 }, 
     { name: DIVISION, isEnabled: true, problemsTotal: 10, maximumDivident: 144 }
-  ]
+  ],
+  mode: SETTINGS
 };
 
 const store = Redux.createStore(

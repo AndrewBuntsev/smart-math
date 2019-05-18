@@ -4,9 +4,13 @@ import {
   CHANGE_MAXIMUM_SUM,
   CHANGE_MAXIMUM_MINUEND,
   CHANGE_MAXIMUM_MULTIPLIER,
-  CHANGE_MAXIMUM_DIVIDENT
+  CHANGE_MAXIMUM_DIVIDENT,
+  CHANGE_MODE
 } from "../const/actionTypes";
+
 import { ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION } from "../const/practicingTypes";
+
+import { SETTINGS, PRACTICING } from "../const/modes";
 
 const rootReducer = (state, action) => {
   switch (action.type) {
@@ -27,6 +31,9 @@ const rootReducer = (state, action) => {
 
     case CHANGE_MAXIMUM_DIVIDENT:
       return changeMaximumDivident(state, action);
+
+    case CHANGE_MODE:
+      return changeMode(state);
 
     default:
       return state;
@@ -132,6 +139,12 @@ function changeMaximumDivident(state, action) {
   }
 
   module.maximumDivident = action.maximumDivident;
+  return newState;
+}
+
+function changeMode(state) {
+  let newState = Object.assign({}, state);
+  newState.mode = newState.mode === SETTINGS ? PRACTICING : SETTINGS;
   return newState;
 }
 

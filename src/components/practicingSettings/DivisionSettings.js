@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import BaseSettings from "./BaseSettings";
 import { DIVISION } from "../../const/practicingTypes";
 import { changeMaximumDivident } from "../../actions/changeMaximumDivident";
+import { SETTINGS } from "../../const/modes";
 
 class DivisionSettings extends Component {
   onChangeMaximumDivident = e => {
@@ -29,7 +30,7 @@ class DivisionSettings extends Component {
                 type="text"
                 value={this.props.maximumDivident}
                 onChange={this.onChangeMaximumDivident}
-                disabled={this.props.isEnabled ? "" : "disabled"}
+                disabled={this.props.isEnabled && this.props.mode === SETTINGS ? "" : "disabled"}
               />
             </Col>
           </Form.Group>
@@ -42,14 +43,16 @@ class DivisionSettings extends Component {
 BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
   maximumDivident: PropTypes.number.isRequired,
-  changeMaximumDivident: PropTypes.func.isRequired
+  changeMaximumDivident: PropTypes.func.isRequired,
+  mode: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
   let module = state.modules.find(m => m.name === DIVISION); 
   return {
     isEnabled: module.isEnabled,
-    maximumDivident: module.maximumDivident
+    maximumDivident: module.maximumDivident,
+    mode: state.mode,
   };
 };
 

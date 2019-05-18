@@ -16,7 +16,7 @@ const collapseStyle = {
 class PracticingModuleSettingsContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { detailsOpened: false };
+    this.state = { detailsOpened: true };
   }
 
   toggleOpened = () => {

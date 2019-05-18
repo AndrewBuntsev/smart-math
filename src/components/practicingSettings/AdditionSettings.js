@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import BaseSettings from "./BaseSettings";
 import { ADDITION } from "../../const/practicingTypes";
 import { changeMaximumSum } from "../../actions/changeMaximumSum";
+import { SETTINGS } from "../../const/modes";
 
 class AdditionSettings extends Component {
   onChangeMaximumSum = e => {
@@ -29,7 +30,7 @@ class AdditionSettings extends Component {
                 type="text"
                 value={this.props.maximumSum}
                 onChange={this.onChangeMaximumSum}
-                disabled={this.props.isEnabled ? "" : "disabled"}
+                disabled={this.props.isEnabled && this.props.mode === SETTINGS ? "" : "disabled"}
               />
             </Col>
           </Form.Group>
@@ -42,14 +43,16 @@ class AdditionSettings extends Component {
 BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
   maximumSum: PropTypes.number.isRequired,
-  changeMaximumSum: PropTypes.func.isRequired
+  changeMaximumSum: PropTypes.func.isRequired,
+  mode: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
   let module = state.modules.find(m => m.name === ADDITION); 
   return {
     isEnabled: module.isEnabled,
-    maximumSum: module.maximumSum
+    maximumSum: module.maximumSum,
+    mode: state.mode,
   };
 };
 
