@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { changeMode } from '../../../actions/changeMode';
-import { SETTINGS } from "../../../const/modes";
+import { SETTINGS, PRACTICING } from "../../../const/modes";
 
 const style = {
   width: '200px',
@@ -21,7 +21,7 @@ class StartPracticingButton extends Component {
 }
 
 StartPracticingButton.propTypes = {
-  mode: PropTypes.bool.isRequired,
+  mode: PropTypes.oneOf([SETTINGS, PRACTICING]),
   changeMode: PropTypes.func.isRequired
 };
 

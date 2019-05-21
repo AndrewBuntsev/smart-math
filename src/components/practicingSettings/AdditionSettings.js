@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import BaseSettings from "./BaseSettings";
 import { ADDITION } from "../../const/practicingTypes";
 import { changeMaximumSum } from "../../actions/changeMaximumSum";
-import { SETTINGS } from "../../const/modes";
+import { SETTINGS, PRACTICING } from "../../const/modes";
 
 class AdditionSettings extends Component {
   onChangeMaximumSum = e => {
@@ -44,7 +44,7 @@ BaseSettings.propTypes = {
   isEnabled: PropTypes.bool.isRequired,
   maximumSum: PropTypes.number.isRequired,
   changeMaximumSum: PropTypes.func.isRequired,
-  mode: PropTypes.bool.isRequired
+  mode: PropTypes.oneOf([SETTINGS, PRACTICING]),
 };
 
 const mapStateToProps = state => {
